@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <form id="form_user">
+        <div class="col-lg-12">
+            Usuario:
+            <input type="text" name="user" />
+            password:
+            <input type="password" name="password" />
+            <input type="submit" class="btn btn-success" value="Entrar" />
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        function fncFormData() {
+            const formData = document.querySelector("#form_user");
+            var formDataSerialize = new FormData(formData);
+            return formDataSerialize;
+        }
+
+        async function fncEnter() {
+			let formDataSerialize = fncFormData();
+            url = "@Url.Content("~/Access/Enter")";
+            let enterResponse = await fetch(url, { method: "POST", body: formDataSerialize });
+            let enterJson = await enterResponse.json();
+			console.log(enterJson);
+            document.location.href = "@Url.Content("~/")";
+        }
+
+        document.querySelector("#form_user").addEventListener("submit", function(e) {
+            e.preventDefault();
+			fncEnter();
+        });
+    });
+</script>
