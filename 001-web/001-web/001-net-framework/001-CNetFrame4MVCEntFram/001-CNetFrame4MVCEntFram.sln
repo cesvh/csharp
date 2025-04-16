@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001-CNetFrame4MVCEntFram", "001-CNetFrame4MVCEntFram.csproj", "{6ECB9B70-768A-4C6F-90DB-9397CAFB6DB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6ECB9B70-768A-4C6F-90DB-9397CAFB6DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECB9B70-768A-4C6F-90DB-9397CAFB6DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECB9B70-768A-4C6F-90DB-9397CAFB6DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECB9B70-768A-4C6F-90DB-9397CAFB6DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {847FC4B5-1163-42E0-862C-F480A7FE3055}
+	EndGlobalSection
+EndGlobal
