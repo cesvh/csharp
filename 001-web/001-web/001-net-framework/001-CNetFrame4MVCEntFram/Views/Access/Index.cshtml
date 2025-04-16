@@ -30,7 +30,7 @@
             let enterResponse = await fetch(url, { method: "POST", body: formDataSerialize });
             let enterJson = await enterResponse.json();
 			console.log(enterJson);
-            document.location.href = "@Url.Content("~/")";
+            //document.location.href = "@Url.Content("~/")";
         }
 
         document.querySelector("#form_user").addEventListener("submit", function(e) {
