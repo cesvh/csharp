@@ -17,12 +17,13 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="email" Type="nchar" MaxLength="200" Nullable="false" />
-          <Property Name="password" Type="nchar" MaxLength="200" Nullable="false" />
-          <Property Name="idState" Type="int" Nullable="false" />
+          <Property Name="email" Type="nchar" MaxLength="200" />
+          <Property Name="password" Type="nchar" MaxLength="200" />
+          <Property Name="idState" Type="int" />
+          <Property Name="edad" Type="int" />
         </EntityType>
         <Association Name="FK_tb_users_tb_cstate">
-          <End Role="tb_cstate" Type="Self.tb_cstate" Multiplicity="1" />
+          <End Role="tb_cstate" Type="Self.tb_cstate" Multiplicity="0..1" />
           <End Role="tb_users" Type="Self.tb_users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tb_cstate">
@@ -66,13 +67,14 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
-          <Property Name="idState" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="idState" Type="Int32" />
+          <Property Name="edad" Type="Int32" />
           <NavigationProperty Name="tb_cstate" Relationship="t_cmvcModel.FK_tb_users_tb_cstate" FromRole="tb_users" ToRole="tb_cstate" />
         </EntityType>
         <Association Name="FK_tb_users_tb_cstate">
-          <End Type="t_cmvcModel.tb_cstate" Role="tb_cstate" Multiplicity="1" />
+          <End Type="t_cmvcModel.tb_cstate" Role="tb_cstate" Multiplicity="0..1" />
           <End Type="t_cmvcModel.tb_users" Role="tb_users" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tb_cstate">
@@ -100,6 +102,7 @@
           <EntitySetMapping Name="tb_users">
             <EntityTypeMapping TypeName="t_cmvcModel.tb_users">
               <MappingFragment StoreEntitySet="tb_users">
+                <ScalarProperty Name="edad" ColumnName="edad" />
                 <ScalarProperty Name="idState" ColumnName="idState" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="email" ColumnName="email" />
