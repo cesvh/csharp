@@ -12,14 +12,9 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nchar" MaxLength="50" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 't_cmvc.dbo.tb_users' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="tb_users">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="email" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="idState" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="email" Type="nchar" MaxLength="200" Nullable="false" />
@@ -40,14 +35,7 @@ advertencia 6002: La tabla o vista 't_cmvc.dbo.tb_users' no tiene definida ningu
         </Association>
         <EntityContainer Name="t_cmvcModelStoreContainer">
           <EntitySet Name="tb_cstate" EntityType="Self.tb_cstate" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tb_users" EntityType="Self.tb_users" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [tb_users].[id] AS [id], 
-    [tb_users].[email] AS [email], 
-    [tb_users].[password] AS [password], 
-    [tb_users].[idState] AS [idState]
-    FROM [dbo].[tb_users] AS [tb_users]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="tb_users" EntityType="Self.tb_users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tb_users_tb_cstate" Association="Self.FK_tb_users_tb_cstate">
             <End Role="tb_cstate" EntitySet="tb_cstate" />
             <End Role="tb_users" EntitySet="tb_users" />
@@ -76,9 +64,6 @@ advertencia 6002: La tabla o vista 't_cmvc.dbo.tb_users' no tiene definida ningu
         <EntityType Name="tb_users">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="email" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="idState" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
