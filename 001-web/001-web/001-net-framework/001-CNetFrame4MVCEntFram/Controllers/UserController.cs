@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using _001_CNetFrame4MVCEntFram.Models;
 using _001_CNetFrame4MVCEntFram.Models.TableViewModels;
+using _001_CNetFrame4MVCEntFram.Models.ViewModels;
 
 namespace _001_CNetFrame4MVCEntFram.Controllers
 {
@@ -25,6 +26,18 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
                        }).ToList();
             }
             return View(userList);
+        }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(UserViewModel userViewModel)
+        {
+            return View();
         }
     }
 }
