@@ -12,27 +12,22 @@
         {
             @Html.AntiForgeryToken();
         <div class="form-group">
-            @Html.ValidationMessage("error", new { @class = "text-danger" })
 
             @Html.LabelFor(m => m.Email, new { @class = "control-label" })
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             @Html.ValidationMessage("Email", new { @class = "text-danger" })
-            <br />
 
             @Html.LabelFor(m => m.Password, new { @class = "control-label" })
             @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
             @Html.ValidationMessage("Password", new { @class = "text-danger" })
-            <br />
 
             @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
             @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control" })
             @Html.ValidationMessage("ConfirmPassword", new { @class = "text-danger" })
-            <br />
 
             @Html.LabelFor(m => m.Edad, new { @class = "control-label" })
             @Html.TextBoxFor(m => m.Edad, new { @class = "form-control" })
             @Html.ValidationMessage("Edad", new { @class = "text-danger" })
-            <br />
             <br />
             <div style="text-align: right">
                 <input type="submit" class="btn btn-success" value="Guardar" />

@@ -17,14 +17,28 @@
             <th>#</th>
             <th>Email</th>
             <th>Edad</th>
+            <th></th>
         </tr>
         @foreach (var oUser in Model)
         {
             <tr>
-                <th>@oUser.Id</th>
-                <th>@oUser.Email</th>
-                <th>@oUser.Edad</th>
+                <td>@oUser.Id</td>
+                <td>@oUser.Email</td>
+                <td>@oUser.Edad</td>
+                <td>
+                    <input onclick="userDelete(@oUser.Id);" type="button" value="Eliminar" class="btn btn-danger" />
+                    <input onclick="document.location.href = '@Url.Content("~/User/Edit/" + oUser.Id)'" type="button" value="Editar" class="btn btn-warning" />
+                </td>
             </tr>
         }
     </table>
 </div>
+
+<script>
+    function userDelete() {
+        if (confirm("¿Está seguro de que desea eliminar este usuario?")) {
+            // Aquí puedes agregar la lógica para eliminar el usuario
+            alert("Usuario eliminado.");
+        }
+    }
+</script>

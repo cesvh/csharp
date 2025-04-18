@@ -18,12 +18,14 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
             using (t_cmvcEntities db = new t_cmvcEntities())
             {
                 userList = (from u in db.tb_users
-                       select new UserTableViewModels
-                       {
-                           Id = u.id,
-                           Email = u.email,
-                           Edad = u.edad
-                       }).ToList();
+                            where u.idState == 1
+                            orderby u.email
+                            select new UserTableViewModels
+                            {
+                                Id = u.id,
+                                Email = u.email,
+                                Edad = u.edad
+                            }).ToList();
             }
             return View(userList);
         }
@@ -54,6 +56,57 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
                 db.SaveChanges();
             }
 
+            return Redirect(Url.Content("~/User/"));
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int Id)
+        {
+            EditUserViewModel userViewModel = new EditUserViewModel();
+            using (t_cmvcEntities db = new t_cmvcEntities())
+            {
+                tb_users user = db.tb_users.Find(Id);
+                if (user != null)
+                {
+                    userViewModel.Email = user.email;
+                    userViewModel.Edad = user.edad ?? 0;
+                    userViewModel.Id = user.id;
+                }
+            }
+            return View(userViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EditUserViewModel userViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(userViewModel);
+            }
+            using (t_cmvcEntities db = new t_cmvcEntities())
+            {
+                tb_users user = db.tb_users.Find(userViewModel.Id);
+                user.email = userViewModel.Email;
+                user.edad = userViewModel.Edad;
+                if (userViewModel.Password != null && userViewModel.Password.Trim() != "")
+                {
+                    user.password = userViewModel.Password;
+                }
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                //tb_users user = db.tb_users.Find(userViewModel.Id);
+                //if (user != null)
+                //{
+                //    user.email = userViewModel.Email;
+                //    user.edad = userViewModel.Edad;
+                //    if (userViewModel.Password != null && !string.IsNullOrEmpty(userViewModel.Password))
+                //    {
+                //        user.password = userViewModel.Password;
+                //    }
+                //    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                //    db.SaveChanges();
+                //}
+            }
             return Redirect(Url.Content("~/User/"));
         }
     }
