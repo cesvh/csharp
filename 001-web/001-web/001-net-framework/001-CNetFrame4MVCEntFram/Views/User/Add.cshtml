@@ -1,8 +1,43 @@
-﻿@model List<_001_CNetFrame4MVCEntFram.Models.ViewModels.UserViewModel>
+﻿@model _001_CNetFrame4MVCEntFram.Models.ViewModels.UserViewModel
 
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Agregar Usuario";
 }
 
-<h2>Add</h2>
+<h2>@ViewBag.Title</h2>
 
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Add", "User", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            @Html.AntiForgeryToken();
+        <div class="form-group">
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessage("Email", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+            @Html.ValidationMessage("Password", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessage("ConfirmPassword", new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(m => m.Edad, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Edad, new { @class = "form-control" })
+            @Html.ValidationMessage("Edad", new { @class = "text-danger" })
+            <br />
+            <br />
+            <div style="text-align: right">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        </div>
+        }
+    </div>
+</div>

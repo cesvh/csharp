@@ -37,7 +37,24 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
         [HttpPost]
         public ActionResult Add(UserViewModel userViewModel)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(userViewModel);
+            }
+            tb_users user = new tb_users
+            {
+                email = userViewModel.Email,
+                password = userViewModel.Password,
+                idState = 1,
+                edad = userViewModel.Edad
+            };
+            using (t_cmvcEntities db = new t_cmvcEntities())
+            {
+                db.tb_users.Add(user);
+                db.SaveChanges();
+            }
+
+            return Redirect(Url.Content("~/User/"));
         }
     }
 }
