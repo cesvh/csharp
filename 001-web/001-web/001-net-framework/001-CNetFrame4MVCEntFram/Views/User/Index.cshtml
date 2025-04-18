@@ -1,7 +1,25 @@
-﻿
+﻿@model List<_001_CNetFrame4MVCEntFram.Models.TableViewModels.UserTableViewModels>
+
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Usuarios</h2>
 
+<div class="row">
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Edad</th>
+        </tr>
+        @foreach (var oUser in Model)
+        {
+            <tr>
+                <th>@oUser.Id</th>
+                <th>@oUser.Email</th>
+                <th>@oUser.Edad</th>
+            </tr>
+        }
+    </table>
+</div>

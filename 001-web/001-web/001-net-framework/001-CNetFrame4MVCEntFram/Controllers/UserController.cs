@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using _001_CNetFrame4MVCEntFram.Models;
+using _001_CNetFrame4MVCEntFram.Models.TableViewModels;
 
 namespace _001_CNetFrame4MVCEntFram.Controllers
 {
@@ -11,7 +13,18 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View();
+            List<UserTableViewModels> userList = null;
+            using (t_cmvcEntities db = new t_cmvcEntities())
+            {
+                userList = (from u in db.tb_users
+                       select new UserTableViewModels
+                       {
+                           Id = u.id,
+                           Email = u.email,
+                           Edad = u.edad
+                       }).ToList();
+            }
+            return View(userList);
         }
     }
 }
