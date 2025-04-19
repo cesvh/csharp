@@ -35,10 +35,18 @@
 </div>
 
 <script>
-    function userDelete() {
+    async function userDelete(id) {
         if (confirm("¿Está seguro de que desea eliminar este usuario?")) {
-            // Aquí puedes agregar la lógica para eliminar el usuario
-            alert("Usuario eliminado.");
+            url = "@Url.Content("~/User/Delete/")" + `${id}`;
+            let enterResponse = await fetch(url, { method: "POST" });
+            let enterJson = await enterResponse.text();
+            console.log(enterJson);
+            if (enterJson == 1) {
+                alert("Usuario eliminado correctamente");
+                document.location.href = "@Url.Content("~/User/")";
+            } else {
+                alert("Error al eliminar el usuario");
+            }
         }
     }
 </script>

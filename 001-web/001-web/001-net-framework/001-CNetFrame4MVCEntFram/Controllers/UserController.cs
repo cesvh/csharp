@@ -19,7 +19,7 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
             {
                 userList = (from u in db.tb_users
                             where u.idState == 1
-                            orderby u.email
+                            orderby u.id
                             select new UserTableViewModels
                             {
                                 Id = u.id,
@@ -69,7 +69,7 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
                 if (user != null)
                 {
                     userViewModel.Email = user.email;
-                    userViewModel.Edad = user.edad ?? 0;
+                    userViewModel.Edad = user.edad;
                     userViewModel.Id = user.id;
                 }
             }
@@ -108,6 +108,19 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
                 //}
             }
             return Redirect(Url.Content("~/User/"));
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int Id)
+        {
+            using (t_cmvcEntities db = new t_cmvcEntities())
+            {
+                tb_users user = db.tb_users.Find(Id);
+                user.idState = 3;
+                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return Content("1");
         }
     }
 }

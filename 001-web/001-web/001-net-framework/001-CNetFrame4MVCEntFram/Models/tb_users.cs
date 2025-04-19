@@ -18,7 +18,7 @@ namespace _001_CNetFrame4MVCEntFram.Models
         public string email { get; set; }
         public string password { get; set; }
         public Nullable<int> idState { get; set; }
-        public Nullable<int> edad { get; set; }
+        public int edad { get; set; }
     
         public virtual tb_cstate tb_cstate { get; set; }
     }
