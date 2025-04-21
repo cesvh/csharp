@@ -23,8 +23,8 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
                 using (t_cmvcEntities db = new t_cmvcEntities())
                 {
                     var lst = from d in db.tb_users
-                               where d.email == user && d.password == password && d.idState == 1
-                               select d;
+                              where d.email == user && d.password == password && d.idState == 1
+                              select d;
                     if (lst.Count() > 0)
                     {
                         Session["user"] = lst.First();

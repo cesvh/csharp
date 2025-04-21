@@ -131,6 +131,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagesUploadController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Filters\VerifySession.cs" />
     <Compile Include="Global.asax.cs">
@@ -158,6 +160,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>t_cmvcEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ImagesUploadViewModel.cs" />
     <Compile Include="Models\ViewModels\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -234,9 +237,12 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Add.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\ImagesUpload\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Files\" />
+    <Folder Include="Views\Logout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -284,9 +290,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>55421</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55421/</IISUrl>
+          <IISUrl>http://localhost:58940/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,0 +1,40 @@
+﻿@model _001_CNetFrame4MVCEntFram.Models.ViewModels.ImagesUploadViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (ViewBag.Mensaje != null)
+{
+<div class="alert alert-success">
+    @ViewBag.Mensaje
+</div>
+}
+
+@using (Html.BeginForm("Guardar", "ImagesUpload", FormMethod.Post, new { @role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(d => d.File1)
+            @*<input type="file" name="File1" value="" />*@
+            @Html.TextBoxFor(d => d.File1, new { type = "file" })
+            @Html.ValidationMessageFor(d => d.File1, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.File2)
+            @*<input type="file" name="File2" value="" />*@
+            @Html.TextBoxFor(d => d.File2, new { type = "file" })
+            @Html.ValidationMessageFor(d => d.File2, "", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.Cadena)
+            @Html.TextBoxFor(d => d.Cadena, new { @class = "form-control" })
+            @Html.ValidationMessageFor(d => d.Cadena, "", new { @class = "text-danger" })
+            <br />
+            <div class="card">
+                <input type="submit" class="btn btn-success" name="" value="Guardar" />
+            </div>
+        </div>
+    </div>
+}
