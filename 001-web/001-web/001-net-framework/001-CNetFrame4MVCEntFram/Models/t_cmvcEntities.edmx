@@ -4,7 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_animal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idAnimal_Class" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_class">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="tb_cstate">
           <Key>
             <PropertyRef Name="id" />
@@ -22,6 +37,18 @@
           <Property Name="idState" Type="int" />
           <Property Name="edad" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_tb_animal_tb_animal">
+          <End Role="tb_class" Type="Self.tb_class" Multiplicity="1" />
+          <End Role="tb_animal" Type="Self.tb_animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tb_animal">
+              <PropertyRef Name="idAnimal_Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tb_users_tb_cstate">
           <End Role="tb_cstate" Type="Self.tb_cstate" Multiplicity="0..1" />
           <End Role="tb_users" Type="Self.tb_users" Multiplicity="*" />
@@ -35,15 +62,20 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBStoreContainer">
+          <EntitySet Name="tb_animal" EntityType="Self.tb_animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_class" EntityType="Self.tb_class" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_cstate" EntityType="Self.tb_cstate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_users" EntityType="Self.tb_users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tb_animal_tb_animal" Association="Self.FK_tb_animal_tb_animal">
+            <End Role="tb_class" EntitySet="tb_class" />
+            <End Role="tb_animal" EntitySet="tb_animal" />
+          </AssociationSet>
           <AssociationSet Name="FK_tb_users_tb_cstate" Association="Self.FK_tb_users_tb_cstate">
             <End Role="tb_cstate" EntitySet="tb_cstate" />
             <End Role="tb_users" EntitySet="tb_users" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -85,7 +117,42 @@
             <End Role="tb_cstate" EntitySet="tb_cstate" />
             <End Role="tb_users" EntitySet="tb_users" />
           </AssociationSet>
+          <EntitySet Name="tb_animal" EntityType="DB.tb_animal" />
+          <EntitySet Name="tb_class" EntityType="DB.tb_class" />
+          <AssociationSet Name="FK_tb_animal_tb_animal" Association="DB.FK_tb_animal_tb_animal">
+            <End Role="tb_class" EntitySet="tb_class" />
+            <End Role="tb_animal" EntitySet="tb_animal" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tb_animal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idAnimal_Class" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_class" Relationship="DB.FK_tb_animal_tb_animal" FromRole="tb_animal" ToRole="tb_class" />
+        </EntityType>
+        <EntityType Name="tb_class">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_animal" Relationship="DB.FK_tb_animal_tb_animal" FromRole="tb_class" ToRole="tb_animal" />
+        </EntityType>
+        <Association Name="FK_tb_animal_tb_animal">
+          <End Type="DB.tb_class" Role="tb_class" Multiplicity="1" />
+          <End Type="DB.tb_animal" Role="tb_animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tb_animal">
+              <PropertyRef Name="idAnimal_Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -108,6 +175,23 @@
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="idState" ColumnName="idState" />
                 <ScalarProperty Name="edad" ColumnName="edad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_animal">
+            <EntityTypeMapping TypeName="DB.tb_animal">
+              <MappingFragment StoreEntitySet="tb_animal">
+                <ScalarProperty Name="idAnimal_Class" ColumnName="idAnimal_Class" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_class">
+            <EntityTypeMapping TypeName="DB.tb_class">
+              <MappingFragment StoreEntitySet="tb_class">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

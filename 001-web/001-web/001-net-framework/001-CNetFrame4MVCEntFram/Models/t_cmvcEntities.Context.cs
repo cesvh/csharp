@@ -27,5 +27,7 @@ namespace _001_CNetFrame4MVCEntFram.Models
     
         public virtual DbSet<tb_cstate> tb_cstate { get; set; }
         public virtual DbSet<tb_users> tb_users { get; set; }
+        public virtual DbSet<tb_animal> tb_animal { get; set; }
+        public virtual DbSet<tb_class> tb_class { get; set; }
     }
 }

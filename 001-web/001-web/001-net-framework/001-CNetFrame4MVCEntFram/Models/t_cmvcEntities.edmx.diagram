@@ -8,6 +8,9 @@
         <EntityTypeShape EntityType="DB.tb_cstate" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DB.tb_users" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="DB.FK_tb_users_tb_cstate" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB.tb_animal" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="DB.tb_class" Width="1.5" PointX="0.75" PointY="5" />
+        <AssociationConnector Association="DB.FK_tb_animal_tb_animal" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

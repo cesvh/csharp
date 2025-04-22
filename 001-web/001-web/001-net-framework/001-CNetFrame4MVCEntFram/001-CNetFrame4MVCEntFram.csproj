@@ -130,6 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccessController.cs" />
+    <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesUploadController.cs" />
     <Compile Include="Controllers\LogoutController.cs" />
@@ -139,6 +140,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\TableViewModels\UserTableViewModels.cs" />
+    <Compile Include="Models\tb_animal.cs">
+      <DependentUpon>t_cmvcEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_class.cs">
+      <DependentUpon>t_cmvcEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tb_cstate.cs">
       <DependentUpon>t_cmvcEntities.tt</DependentUpon>
     </Compile>
@@ -238,6 +245,7 @@
     <Content Include="Views\User\Add.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\ImagesUpload\Index.cshtml" />
+    <Content Include="Views\Animal\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
