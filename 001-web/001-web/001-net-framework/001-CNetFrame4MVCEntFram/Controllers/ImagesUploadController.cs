@@ -22,7 +22,7 @@ namespace _001_CNetFrame4MVCEntFram.Controllers
         [HttpPost]
         public ActionResult Guardar(ImagesUploadViewModel model)
         {
-            string RutaSitio = Server.MapPath("~/");
+            string RutaSitio = Server.MapPath("~/Files");
             string PathArchivo1 = Path.Combine(RutaSitio, model.File1.FileName);
             string PathArchivo2 = Path.Combine(RutaSitio, model.File2.FileName);
             if (!ModelState.IsValid)
