@@ -17,7 +17,7 @@ namespace _001CNetFram4MVCAPI.Models
         public int id { get; set; }
         public string email { get; set; }
         public string password { get; set; }
-        public Nullable<int> idEstatus { get; set; }
-        public Nullable<int> token { get; set; }
+        public int idEstatus { get; set; }
+        public string token { get; set; }
     }
 }
