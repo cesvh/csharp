@@ -193,6 +193,7 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\WS\AccessViewModel.cs" />
+    <Compile Include="Models\WS\EventosViewModel.cs" />
     <Compile Include="Models\WS\ListaEventosViewModel.cs" />
     <Compile Include="Models\WS\Reply.cs" />
     <Compile Include="Models\WS\SecurityViewModel.cs" />

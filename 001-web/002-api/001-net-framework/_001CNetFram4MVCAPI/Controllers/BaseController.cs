@@ -10,6 +10,7 @@ namespace _001CNetFram4MVCAPI.Controllers
 {
     public class BaseController : ApiController
     {
+        public string error = "";
         public bool Verify(string token)
         {
             try
