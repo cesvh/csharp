@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="t_cmvcapiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_eventos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="evento" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="anio" Type="bigint" />
+          <Property Name="idEstatus" Type="int" />
+        </EntityType>
         <EntityType Name="tb_user">
           <Key>
             <PropertyRef Name="id" />
@@ -16,6 +25,7 @@
           <Property Name="token" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityContainer Name="t_cmvcapiModelStoreContainer">
+          <EntitySet Name="tb_eventos" EntityType="Self.tb_eventos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_user" EntityType="Self.tb_user" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -24,6 +34,7 @@
       <Schema Namespace="t_cmvcapiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="t_cmvcapiEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tb_user" EntityType="t_cmvcapiModel.tb_user" />
+          <EntitySet Name="tb_eventos" EntityType="t_cmvcapiModel.tb_eventos" />
         </EntityContainer>
         <EntityType Name="tb_user">
           <Key>
@@ -34,6 +45,15 @@
           <Property Name="password" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="idEstatus" Type="Int32" Nullable="false" />
           <Property Name="token" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_eventos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="evento" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="anio" Type="Int64" />
+          <Property Name="idEstatus" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -48,6 +68,16 @@
                 <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_eventos">
+            <EntityTypeMapping TypeName="t_cmvcapiModel.tb_eventos">
+              <MappingFragment StoreEntitySet="tb_eventos">
+                <ScalarProperty Name="idEstatus" ColumnName="idEstatus" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="evento" ColumnName="evento" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

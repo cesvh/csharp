@@ -5,9 +5,9 @@ using System.Web;
 
 namespace _001CNetFram4MVCAPI.Models.WS
 {
-    public class AccessViewModel
+    public class ListaEventosViewModel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string Evento { get; set; }
+        public Int64 Anio { get; set; }
     }
 }

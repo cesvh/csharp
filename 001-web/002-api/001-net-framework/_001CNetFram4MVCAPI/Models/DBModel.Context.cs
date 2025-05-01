@@ -26,5 +26,6 @@ namespace _001CNetFram4MVCAPI.Models
         }
     
         public virtual DbSet<tb_user> tb_user { get; set; }
+        public virtual DbSet<tb_eventos> tb_eventos { get; set; }
     }
 }

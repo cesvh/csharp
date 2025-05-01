@@ -12,7 +12,8 @@ namespace _001CNetFram4MVCAPI.Controllers
     public class AccessController : ApiController
     {
         [HttpGet]
-        public Reply HelloWorld() {
+        public Reply HelloWorld()
+        {
             Reply reply = new Reply();
             try
             {
@@ -38,8 +39,9 @@ namespace _001CNetFram4MVCAPI.Controllers
             {
                 using (t_cmvcapiEntities db = new t_cmvcapiEntities())
                 {
-                    var lst = db.tb_user.Where(x => x.email == model.email && x.password == model.password);
-                    if (lst.Count() > 0) {
+                    var lst = db.tb_user.Where(x => x.email == model.Email && x.password == model.Password);
+                    if (lst.Count() > 0)
+                    {
                         reply.Result = 1;
                         reply.Data = Guid.NewGuid().ToString();
                         reply.Message = "Login correcto";
