@@ -1,4 +1,4 @@
-using _001WebApi.Models;
+﻿using _001WebApi.Models;
 using _001WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Inyecci�n de dependencias.
-builder.Services.AddScoped<IEventos, EventoService>();
+// Inyección de dependencias.
+builder.Services.AddScoped<IEventoService, EventoService>();
 
 var app = builder.Build();
 

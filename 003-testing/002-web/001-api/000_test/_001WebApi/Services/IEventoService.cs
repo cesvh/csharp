@@ -2,7 +2,7 @@
 
 namespace _001WebApi.Services
 {
-    public interface IEventos
+    public interface IEventoService
     {
         public IEnumerable<Eventos> GetEventos();
         public Eventos? GetEvento(int id);

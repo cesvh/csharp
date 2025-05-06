@@ -2,7 +2,7 @@
 
 namespace _001WebApi.Services
 {
-    public class EventoService : IEventos
+    public class EventoService : IEventoService
     {
         private List<Eventos> _eventos = new List<Eventos>(){
             new Eventos()
