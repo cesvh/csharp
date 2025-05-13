@@ -1,0 +1,49 @@
+App_Data:
+
+Contiene archivos de datos relacionados con la aplicación, como archivos .mdf, LocalDB, archivos XML, etc. El punto más importante que debe recordar es que IIS nunca servirá archivos de esta carpeta App_Data.
+
+
+App_Start:
+
+Contiene archivos de clase relacionados con la configuración que deben ejecutarse al iniciarse la aplicación. Clases como BundleConfig, FilterConfig, RouteConfig, IdentityConfig, etc., se almacenan en esta carpeta.
+
+
+Content:
+
+Contiene archivos estáticos como archivos de imagen, archivos CSS, archivos de íconos, etc. Cuando creamos una nueva aplicación ASP.NET MVC 5, de forma predeterminada Visual Studio incluye los archivos bootstrap.css, Site.css y bootstrap.min.css.
+
+
+Controllers:
+
+Contiene todos los controladores de la aplicación. Los controladores son clases heredadas de la clase base "Controlador". El nombre del controlador debe terminar con la palabra "Controller". Esta clase gestiona la solicitud del usuario, es decir, las solicitudes HTTP entrantes, y devuelve una respuesta.
+
+
+Models:
+
+Contiene los archivos de clase que se utilizan para almacenar los datos del dominio (también conocidos como datos de negocio), así como la lógica de negocio para gestionarlos.
+
+
+Scripts:
+
+Contiene todos los archivos JavaScript necesarios para la aplicación. Al crear una aplicación ASP.NET MVC 5, se incluyen por defecto los archivos JavaScript necesarios para jQuery y Bootstrap. Si desea crear archivos JavaScript personalizados, debe crearlos en esta carpeta o en una subcarpeta de ella. Esto no es obligatorio, pero es una buena práctica de programación, ya que más adelante podrá encontrar fácilmente los archivos JavaScript.
+
+
+Views:
+
+Contiene todos los archivos ".cshtml" de la aplicación. En MVC, el archivo .cshtml es el archivo donde se escribe el código HTML junto con el código C#. La carpeta Views también incluye carpetas independientes para cada controlador de la aplicación. Por ejemplo, todos los archivos .cshtml del HomeController se encuentran en la carpeta View => Home. También se incluye la carpeta Shared dentro de la carpeta Views. Esta carpeta contiene todas las vistas que deben compartir los distintos controladores, como archivos de error, archivos de diseño, etc.
+
+
+Global.asax:
+
+Nos permite escribir el código que queremos ejecutar a nivel de aplicación o podemos decir a nivel global, como Application_BeginRequest, Application_Error, Application_Start, Session_Start, Session_End, etc.
+
+
+Packages.config:
+
+El archivo Packages.config en una aplicación ASP.NET MVC es administrado por el Administrador de paquetes NuGet, que realizará un seguimiento de qué paquetes y versiones se han instalado en su aplicación.
+
+
+Web.config:
+
+El archivo Web.config de una aplicación ASP.NET MVC es uno de los archivos más útiles e importantes que contiene las configuraciones de nivel de aplicación, como cadenas de conexión, variables globales, etc.
+
