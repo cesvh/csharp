@@ -1,0 +1,20 @@
+¿Qué es MVC?
+
+MVC es un patrón de diseño de software arquitectónico que se utiliza para desarrollar aplicaciones interactivas donde el usuario interactúa y, en función de esta interacción, se gestionan eventos. No solo se utiliza para aplicaciones web, sino también para aplicaciones de escritorio o móviles donde el usuario interactúa.
+
+Se introdujo en 1970 y divide la aplicación en tres componentes principales: Modelo, Vista y Controlador. El objetivo principal del patrón de diseño MVC es la separación de tareas (código), lo que significa que el modelo de dominio y la lógica de negocio están separados de la interfaz de usuario (es decir, la vista). Como resultado, el mantenimiento y las pruebas de la aplicación se vuelven más simples y fáciles.
+
+
+
+¿Cómo funciona el patrón de diseño MVC en la aplicación ASP.NET MVC?
+
+Cuando el cliente (usuario) emite una solicitud desde un navegador web, la solicitud es manejada por el marco MVC como se muestra a continuación.
+
+El controlador es el componente de la aplicación ASP.NET MVC que recibe y gestiona la solicitud HTTP entrante. Para gestionar la solicitud HTTP entrante, el controlador realiza las siguientes acciones:
+
+1.- El controlador crea el objeto de modelo requerido por una vista. El modelo es el componente del patrón de diseño MVC que contiene un conjunto de clases para representar los datos del dominio o del negocio, así como la lógica para gestionarlos.
+
+2.- El controlador selecciona una vista para representar los datos del dominio o del negocio. Es importante recordar que, al seleccionar una vista, es responsabilidad del controlador pasar los datos del modelo.
+
+3.- En el patrón de diseño MVC, la única responsabilidad de una vista es mostrar los datos del modelo. Por lo tanto, su responsabilidad es generar el HTML necesario para renderizar los datos del modelo o del negocio. Una vez generado el HTML por la vista, este se envía al cliente a través del controlador que realizó la solicitud inicialmente.
+

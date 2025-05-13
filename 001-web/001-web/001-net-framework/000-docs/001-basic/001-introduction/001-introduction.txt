@@ -1,0 +1,5 @@
+¿Qué es ASP.NET MVC?
+
+ASP.NET MVC es un marco de desarrollo de aplicaciones web de Microfosft, basado en .NET Framework.
+
+El framework ASP.NET MVC se basa en el patrón de diseño MVC (Modelo-Vista-Controlador). ASP.NET MVC es un framework, mientras que MVC es un patrón de diseño.
