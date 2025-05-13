@@ -1,0 +1,9 @@
+Aplicación web ASP.NET (.NET Framework)
+Plantillas de poroyecyos para crear aplicaciones ASP.NET. Puede crear aplicaciones ASP.NET Web Forms, MVC o Web API y agregar muchas otras características en ASP.NET.
+C#, Windows, Nube, Web
+
+Colocar la solución y el proyecto en el misom directorio
+
+Marco: .NET Framework 4.7.2
+
+MVC
