@@ -1,0 +1,7 @@
+Vistas en ASP.NET MVC
+
+En el patrón MVC, el componente de vista contiene la lógica para representar los datos del modelo como una interfaz de usuario con la que el usuario final puede interactuar. Normalmente, crea la interfaz de usuario con los datos del modelo que le proporciona el controlador. Por lo tanto, puede considerar las vistas en ASP.NET MVC como plantillas HTML integradas con la sintaxis Razor que genera contenido HTML que se envía al cliente.
+
+En ASP.NET MVC, las vistas tienen una extensión “.cshtml” cuando usamos C# como lenguaje de programación con sintaxis Razor. Por lo general, cada controlador tendrá su propia carpeta en la que se guardarán los archivos .cshtml (vistas) específicos del controlador. Las carpetas específicas del controlador se crearán dentro de la carpeta Vistas. El punto más importante que debes tener en cuenta es que el nombre del archivo de vista y el nombre de la acción del controlador serán los mismos.
+
+Las vistas en la aplicación ASP.NET MVC proporcionan la separación de preocupaciones (códigos). Significa que separa la interfaz de usuario del resto de la aplicación, como la capa empresarial y la capa de acceso a datos. Las vistas ASP.NET MVC utilizan la sintaxis avanzada de Razor, lo que facilita el cambio entre el código HTML y C#. Las secciones comunes o repetitivas de las páginas web se pueden reutilizar fácilmente utilizando el diseño y las vistas parciales.
