@@ -13,8 +13,51 @@ Cuando el cliente (usuario) emite una solicitud desde un navegador web, la solic
 El controlador es el componente de la aplicación ASP.NET MVC que recibe y gestiona la solicitud HTTP entrante. Para gestionar la solicitud HTTP entrante, el controlador realiza las siguientes acciones:
 
 1.- El controlador crea el objeto de modelo requerido por una vista. El modelo es el componente del patrón de diseño MVC que contiene un conjunto de clases para representar los datos del dominio o del negocio, así como la lógica para gestionarlos.
-
 2.- El controlador selecciona una vista para representar los datos del dominio o del negocio. Es importante recordar que, al seleccionar una vista, es responsabilidad del controlador pasar los datos del modelo.
-
 3.- En el patrón de diseño MVC, la única responsabilidad de una vista es mostrar los datos del modelo. Por lo tanto, su responsabilidad es generar el HTML necesario para renderizar los datos del modelo o del negocio. Una vez generado el HTML por la vista, este se envía al cliente a través del controlador que realizó la solicitud inicialmente.
 
+
+
+Modelo:
+
+El Modelo es el componente del patrón de diseño MVC que gestiona los datos de negocio o de dominio, es decir, el estado de la aplicación en memoria. El Modelo contiene un conjunto de clases que representan los datos, así como la lógica para gestionarlos.
+
+1.- En ASP.NET, MVC es básicamente una clase de C# o VB.net para representar los datos y también para administrarlos.
+2.- Es accesible tanto por el controlador como por la vista.
+3.- Se puede utilizar para pasar datos de los métodos de acción del controlador a una vista.
+4.- También puede ser utilizado por una vista para mostrar datos en una página (salida HTML).
+
+
+
+Vista:
+
+Componente del patrón de diseño MVC que representa los datos del modelo como la interfaz de usuario con la que el usuario final puede interactuar. Por lo tanto, la vista crea la interfaz de usuario con los datos del modelo.
+
+1.- En ASP.NET MVC es una página cshtml.
+2.- Contiene todo el código de formato y generación de HTML específico de la página.
+3.- Una solicitud a una vista solo se puede realizar desde el método de acción de un controlador.
+4.- La única responsabilidad de una vista es representar los datos del dominio o los datos comerciales.
+
+
+
+Controlador:
+
+Componente que contiene la lógica del flujo de control. Es el que interactuará con los modelos y las vistas para controlar el flujo de ejecución de la aplicación. El controlador es el componente en el patrón de diseño MVC que manejará la solicitud HTTP entrante. En función de las acciones del usuario, el controlador correspondiente trabajará con el modelo y la vista, y luego enviará la respuesta al usuario que realizó la solicitud inicialmente.
+
+1.- Es básicamente una clase C# o VB.NET que se hereda de System.Web.Mvc.Controller.
+2.- Es el componente que interactuará con los modelos y las vistas.
+3.- Contiene métodos de acción que son responsables de manejar la solicitud HTTP entrante.
+4.- Puede acceder y utilizar la clase de modelo para pasar los datos a las vistas.
+
+
+
+Ventajas de utilizar ASP.NET MVC Framework para desarrollar aplicaciones web
+
+1.- Es liviano porque no utiliza estados de vista ni formularios basados ​​en servidor ni controles de servidor.
+2.- Cada desarrollador, según su experiencia, puede trabajar en diferentes partes de la aplicación. Por ejemplo, un desarrollador puede trabajar en la vista, otro en la lógica del controlador y otro en la lógica de negocio.
+3.- HTML limpio y fácil integración con javascript y jQuery.
+4.- Proporciona un mejor soporte para el desarrollo basado en pruebas (TDD). Esto se debe a que podemos centrarnos en un aspecto a la vez, es decir, podemos centrarnos en la vista sin preocuparnos por la lógica de negocio.
+5.- ASP.NET MVC Framework divide la aplicación en tres aspectos principales: Modelo, Vista y Controlador, lo que facilita la gestión de la complejidad de la aplicación.
+6.- Otra ventaja importante del framework ASP.NET MVC es que sus componentes están diseñados para ser extensibles y conectables y, por lo tanto, son fácilmente reemplazables o personalizables.
+7.- El marco MVC está construido sobre el marco ASP.NET y, por lo tanto, podemos utilizar la mayoría de las características de ASP.NET, como escenarios de autenticación y autorización, membresía y roles, almacenamiento en caché, sesiones y muchas más.
+8.- El marco ASP.NET MVC admite un poderoso mecanismo de enrutamiento de URL (es decir, enrutamiento de atributos) que ayuda a crear URL más fáciles de usar y optimizadas para SEO para nuestra aplicación.
