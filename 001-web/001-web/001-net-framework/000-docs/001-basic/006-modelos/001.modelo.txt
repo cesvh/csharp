@@ -1,0 +1,5 @@
+Modelo:
+
+Componente que contiene un conjunto de clases que se utilizan para representar los datos de negocio (o datos del dominio), así como la lógica para gestionarlos. Se utiliza para gestionar los datos del dominio, es decir, el estado de la aplicación en memoria.
+
+También contienen la lógica de negocio para gestionar los datos empresariales.
