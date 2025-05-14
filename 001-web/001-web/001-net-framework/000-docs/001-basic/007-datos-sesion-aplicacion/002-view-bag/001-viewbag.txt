@@ -1,0 +1,45 @@
+ViewBag:
+
+ViewBag en ASP.NET MVC Framework es uno de los mecanismos para pasar datos desde un método de acción del controlador a una vista. Si consulta la definición de ViewBag, verá que se define como una propiedad en la clase ControllerBase con la siguiente firma.
+
+[Dynamic]
+public dynamic ViewBag { get; }
+
+ViewBag es una propiedad dinámica (una nueva característica introducida en C# 4.0). Un tipo de dato dinámico significa que, en tiempo de ejecución, se decidirá el tipo de dato en función del valor. ViewBag también es como ViewData, que transfiere los datos de un método de acción del controlador a una vista.
+
+Dado que ViewBag opera con el nuevo tipo de dato dinámico, la ventaja es que no es necesario convertir tipos al acceder a los datos desde un ViewBag, independientemente de los datos a los que accedamos.
+
+
+Controlador:
+ViewBag.Header = "Eventos Del Universo";
+
+Vista:
+@ViewBag.Header;
+
+
+Con objetos:
+
+Controlador:
+ViewBag.ObjectName = ObjectName;
+
+Vista:
+@{
+    var universeEvent = ViewBag.ObjectName;
+}
+
+ViewBag es una propiedad dinámica que, al igual que ViewData, se resuelve en tiempo de ejecución. Por lo tanto, tampoco ofrece comprobación de errores en tiempo de compilación ni soporte de inteligencia. Por ejemplo, si escribimos mal los nombres de las propiedades de ViewBag, no obtendremos ningún error en tiempo de compilación, sino que lo detectaremos en tiempo de ejecución.
+
+Internamente, ViewBag es un contenedor de ViewData. Por lo tanto, generará una excepción en tiempo de ejecución si el nombre de la propiedad ViewBag coincide con la clave de ViewData.
+
+
+
+Diferencias y similitudes entre ViewData y ViewBag en ASP.NET MVC
+
+1.- En ASP.NET MVC, podemos usar ViewData y ViewBag para pasar los datos de un método de acción de controlador a una vista.
+2.- ViewData es un objeto de diccionario, mientras que ViewBag es una propiedad dinámica. Tanto ViewData como ViewBag se utilizan para crear vistas con tipado flexible en ASP.NET MVC.
+3.- En ViewData, usamos la cadena como clave para almacenar y recuperar los datos, mientras que en ViewBag usamos las propiedades dinámicas para almacenar y recuperar datos.
+4.- ViewData requiere conversión de tipos para tipos de datos complejos y también verifica valores nulos para evitar excepciones, mientras que ViewBag no requiere ninguna conversión de tipos para el tipo de datos complejos.
+5.- Tanto las claves ViewData como las propiedades dinámicas de ViewBag se resuelven solo en tiempo de ejecución. Por lo tanto, ninguna de ellas proporciona comprobación de errores en tiempo de compilación y, por ello, no se obtendrá soporte de inteligencia.
+6.- Por lo tanto, si escribimos mal los nombres de las claves o de las propiedades dinámicas, no se producirá ningún error en tiempo de compilación, sino que solo se detectará en tiempo de ejecución. Por esta razón, rara vez usamos ViewBag y ViewData en nuestra aplicación.
+
+El mejor enfoque en ASP.NET MVC Framework para pasar datos desde un método de acción de controlador a una vista es usar un modelo fuertemente tipado. Estos modelos proporcionan comprobación de errores en tiempo de compilación, lo que a su vez nos proporciona soporte de inteligencia.

@@ -11,39 +11,43 @@
 </head>
 <body>
     @{
-        var universeEvent = ViewData["UniverseEvent"] as _000universe.Models.UniverseEvent; // Conversión para objectos
+        var universeEventData = ViewData["UniverseEvent"] as _000universe.Models.UniverseEvent; // Conversión para objectos
+        var universeEventBag = ViewBag.UniverseEvent;
     }
 
     <h1>@ViewData["Title"]</h1>
+    <p>Datos con ViewData</p>
     <table style="font-family: Arial">
         <tr>
             <td>Evento ID:</td>
-            <td>@universeEvent.Id</td>
+            <td>@universeEventData.Id</td>
         </tr>
         <tr>
             <td>Nombre Del Evento: </td>
-            <td>@universeEvent.EventName</td>
+            <td>@universeEventData.EventName</td>
         </tr>
         <tr>
             <td>Año Del Evento: </td>
-            <td>@universeEvent.EventYear</td>
-        </tr>
-        <tr>
-            <td>Desviación Estandar: </td>
-            <td>@universeEvent.StandardDeviation</td>
-        </tr>
-        <tr>
-            <td>Descripción Del Evento: </td>
-            <td>@universeEvent.ItemDescription</td>
-        </tr>
-        <tr>
-            <td>Estado: </td>
-            <td>@universeEvent.Active</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
+            <td>@universeEventData.EventYear</td>
         </tr>
     </table>
+    <p>Datos con ViewBag</p>
+    <table style="font-family: Arial">
+        <tr>
+            <td>Evento ID:</td>
+            <td>@universeEventBag.Id</td>
+        </tr>
+        <tr>
+            <td>Nombre Del Evento: </td>
+            <td>@universeEventBag.EventName</td>
+        </tr>
+        <tr>
+            <td>Año Del Evento: </td>
+            <td>@universeEventBag.EventYear</td>
+        </tr>
+    </table>
+    <footer>
+        <p>@ViewBag.Footer</p>
+    </footer>
 </body>
 </html>

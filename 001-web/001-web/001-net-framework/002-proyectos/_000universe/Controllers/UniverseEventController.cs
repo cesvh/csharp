@@ -20,6 +20,9 @@ namespace _000universe.Controllers
             ViewData["UniverseEvent"] = universeEvent;
             ViewData["Title"] = "Eventos Del Universo";
 
+            ViewBag.UniverseEvent = universeEvent;
+            ViewBag.Footer = "Proyecto Planck";
+
             return View();
         }
     }
