@@ -1,0 +1,33 @@
+﻿@model _000universe.Models.ViewDataBagEvent
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eventos del Universo</title>
+</head>
+<body>
+    <h1>@ViewBag.Encabezado</h1>
+    <p>Datos con Vistas Fuertemente Típadas</p>
+    <table style="font-family: Arial">
+        <tr>
+            <td>Evento ID:</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>Nombre Del Evento: </td>
+            <td>@Model.EventName</td>
+        </tr>
+        <tr>
+            <td>Año Del Evento: </td>
+            <td>@Model.EventYear</td>
+        </tr>
+    </table>
+    <footer>
+        <p>@ViewBag.Pie</p>
+    </footer>
+</body>
+</html>

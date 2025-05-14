@@ -6,11 +6,11 @@ using _000universe.Models; // Para poder usar la clase Event
 
 namespace _000universe.Models
 {
-    public class UniverseEventBusinessLayer
+    public class ViewDataBagEventBusinessLayer
     {
-        public UniverseEvent GetUniverseEventById(int id)
+        public ViewDataBagEvent GetUniverseEventById(int id)
         {
-            UniverseEvent universeEvent = new UniverseEvent()
+            ViewDataBagEvent universeEvent = new ViewDataBagEvent()
             {
                 Id = id,
                 EventName = "Big Bang",

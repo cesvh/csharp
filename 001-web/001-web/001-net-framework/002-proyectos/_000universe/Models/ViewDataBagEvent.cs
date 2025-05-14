@@ -5,7 +5,7 @@ using System.Web;
 
 namespace _000universe.Models
 {
-    public class UniverseEvent
+    public class ViewDataBagEvent
     {
         public int Id { get; set; }
         public string EventName { get; set; }

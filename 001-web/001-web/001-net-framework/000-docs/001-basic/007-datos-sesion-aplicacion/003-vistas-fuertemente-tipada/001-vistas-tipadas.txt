@@ -1,0 +1,29 @@
+Para crear una vista fuertemente tipada en una aplicación ASP.NET MVC, necesitamos pasar el objeto del modelo como parámetro al método de extensión View(). La clase base Controller proporciona las siguientes cuatro versiones sobrecargadas del método de extensión View(), que podemos usar para pasar los datos del modelo desde el método de acción del controlador a una vista.
+
+// protected internal ViewResult View();
+protected internal ViewResult View(object model);
+// protected internal ViewResult View(string viewName);
+// protected internal ViewResult View(string viewName, string masterName);
+protected internal ViewResult View(string viewName, object model);
+protected internal virtual ViewResult View(string viewName, string masterName, object model);
+// protected internal ViewResult View(IView view);
+protected internal virtual ViewResult View(IView view, object model);
+
+Usaremos la versión sobrecargada, que solo acepta el objeto del modelo como parámetro de entrada. Dado que el parámetro de entrada es de tipo objeto, podemos pasar cualquier dato. Modifique el método de acción "Index" del controlador principal.
+
+Controlador:
+return View(employee); // Retornamos un objeto del módelo.
+
+Para crear una vista fuertemente tipada en una aplicación ASP.NET MVC, necesitamos especificar el tipo de modelo dentro de la vista mediante la directiva @model.
+
+Vista:
+@model FirstMVCDemo.Models.ObjectName
+
+La declaración anterior indicará que vamos a utilizar FirstMVCDemo.Models.ObjectName como modelo para esta vista. Aquí, en la directiva (@model), la letra m está en minúscula y la declaración no debe terminar con punto y coma.
+
+Luego podemos acceder a las propiedades del modelo simplemente usando @Model, aquí la letra M está en mayúscula. Entonces, en nuestro ejemplo, podemos acceder a las propiedades del objeto ObjectName, usando @Model.Atributo1, @Model.Atributo2 respectivamente.
+
+Ventajas de utilizar una vista fuertemente tipada en una aplicación ASP.NET MVC:
+
+1.- La vista fuertemente tipada en ASP.NET MVC proporciona verificación de errores en tiempo de compilación, así como soporte de inteligencia.
+2.- Si escribimos mal el nombre de la propiedad, se detectará en el momento de compilación en lugar de en el momento de ejecución.

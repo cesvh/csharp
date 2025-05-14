@@ -95,12 +95,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UniverseEventController.cs" />
+    <Compile Include="Controllers\StrongTypedEventController.cs" />
+    <Compile Include="Controllers\ViewDataBagEventController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\UniverseEvent.cs" />
-    <Compile Include="Models\UniverseEventBusinessLayer.cs" />
+    <Compile Include="Models\ViewDataBagEvent.cs" />
+    <Compile Include="Models\ViewDataBagEventBusinessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +110,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\UniverseEvent\Index.cshtml" />
+    <Content Include="Views\ViewDataBagEvent\Index.cshtml" />
+    <Content Include="Views\StrongTypedEvent\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
