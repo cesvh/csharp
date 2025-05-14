@@ -1,0 +1,35 @@
+﻿@model _000universe.Models.ViewModels.EventDescriptionViewModel
+
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eventos del Universo</title>
+</head>
+<body>
+    <h1>@Model.PageTitle</h1>
+    <p>Datos con ViewModel</p>
+    <table style="font-family: Arial">
+        <tr>
+            <td>Id del Evento</td>
+            <td>@Model.Event.Id</td>
+        </tr>
+        <tr>
+            <td>Nombre Del Evento: </td>
+            <td>@Model.Event.EventName</td>
+        </tr>
+        <tr>
+            <td>Descripción del Evento: </td>
+            <td>@Model.EventDescription.ItemDescription</td>
+        </tr>
+    </table>
+    <footer>
+        <p>@Model.Footer</p>
+    </footer>
+</body>
+</html>

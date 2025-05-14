@@ -1,0 +1,6 @@
+ViewModel:
+
+Es un modelo que contiene más de un dato de modelo necesario para una vista específica. Dado que este modelo es específico para una vista específica, lo llamamos modelo de vista en ASP.NET MVC.
+
+En la aplicación ASP.NET MVC, puede crear los modelos de vista en cualquier lugar dentro de su proyecto, pero siempre es una buena práctica de programación crear todos los modelos de vista dentro de una carpeta especial llamada ViewModels.
+
