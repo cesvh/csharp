@@ -1,0 +1,29 @@
+Es un mecanismo para pasar los datos de un método de acción del controlador a una vista.
+
+ViewData está definido como una propiedad en la clase ConstrollerBase y su tipo es ViewDataDictionary, el tipo de retorno de ViewData es ViewDataDictionary.
+
+La clase ViewDataDictionary implementa la interfaz IDictionary. Por lo tanto, podemos decir que ViewData en ASP.NET MVC Framework es un objeto de diccionario. Como tal, almacenará los datos en pares clave-valor, donde cada clave debe ser una cadena y el valor que se pasa al diccionario se almacenará como un tipo de objeto.
+
+
+¿Cómo pasar y recuperar datos de ViewData en ASP.NET MVC?
+
+Controlador:
+ViewData["Header"] = "Detalles del evento";
+
+Vista:
+@ViewData["Header"];
+
+
+Con Objetos:
+
+Controlador:
+ViewData["Header"] = ObjetName;
+
+Vista:
+@{
+    var objectName = @ViewData["Header"] as ProjectName.Models.ObjetName;
+}
+
+ViewData en MVC se resuelve dinámicamente en tiempo de ejecución. Por lo tanto, no ofrece comprobación de errores en tiempo de compilación ni soporte de inteligencia. Por ejemplo, si escribimos mal los nombres de las claves, no obtendremos ningún error en tiempo de compilación, sino que lo detectaremos en tiempo de ejecución.
+
+ViewData en ASP.NET MVC solo puede transferir datos desde un método de acción del controlador a una vista. Esto significa que solo es válido durante la solicitud actual.

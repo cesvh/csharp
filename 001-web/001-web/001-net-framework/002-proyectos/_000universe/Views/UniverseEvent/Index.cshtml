@@ -1,7 +1,6 @@
 ﻿
 @{
     Layout = null;
-    ViewBag.Title = "Index";
 }
 
 <!DOCTYPE html>
@@ -11,6 +10,40 @@
     <title>Eventos del Universo</title>
 </head>
 <body>
-    <h1>Eventos del Universo</h1>
+    @{
+        var universeEvent = ViewData["UniverseEvent"] as _000universe.Models.UniverseEvent; // Conversión para objectos
+    }
+
+    <h1>@ViewData["Title"]</h1>
+    <table style="font-family: Arial">
+        <tr>
+            <td>Evento ID:</td>
+            <td>@universeEvent.Id</td>
+        </tr>
+        <tr>
+            <td>Nombre Del Evento: </td>
+            <td>@universeEvent.EventName</td>
+        </tr>
+        <tr>
+            <td>Año Del Evento: </td>
+            <td>@universeEvent.EventYear</td>
+        </tr>
+        <tr>
+            <td>Desviación Estandar: </td>
+            <td>@universeEvent.StandardDeviation</td>
+        </tr>
+        <tr>
+            <td>Descripción Del Evento: </td>
+            <td>@universeEvent.ItemDescription</td>
+        </tr>
+        <tr>
+            <td>Estado: </td>
+            <td>@universeEvent.Active</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 </body>
 </html>

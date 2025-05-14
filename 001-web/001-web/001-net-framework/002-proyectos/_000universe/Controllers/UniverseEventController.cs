@@ -14,6 +14,12 @@ namespace _000universe.Controllers
         {
             UniverseEventBusinessLayer universeEventBL = new UniverseEventBusinessLayer();
             UniverseEvent universeEvent = universeEventBL.GetUniverseEventById(1);
+
+            // Pasar datos del controlador a la vista con ViewData
+            // Solo es válido durante la solicitud actual
+            ViewData["UniverseEvent"] = universeEvent;
+            ViewData["Title"] = "Eventos Del Universo";
+
             return View();
         }
     }

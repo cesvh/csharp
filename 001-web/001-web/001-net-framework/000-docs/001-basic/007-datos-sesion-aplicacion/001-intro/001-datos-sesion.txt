@@ -1,0 +1,4 @@
+
+En la aplicación ASP.NET MVC, podemos pasar los datos del modelo de un controlador a una vista de diversas maneras, como mediante ViewBag, ViewData, TempData, Session y Application, así como mediante vistas fuertemente tipadas. También podemos usar las variables Session y Application State, como en nuestros formularios web tradicionales, para administrar los datos durante una sesión de usuario o en toda la aplicación.
+
+Cada uno tiene sus propias ventajas y desventajas.
