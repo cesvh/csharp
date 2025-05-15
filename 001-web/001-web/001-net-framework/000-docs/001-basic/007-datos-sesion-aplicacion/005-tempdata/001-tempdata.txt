@@ -1,0 +1,39 @@
+TempData
+
+La limitación de ViewData y ViewBag es que solo admiten una solicitud HTTP. Por lo tanto, si se produce una redirección, sus valores se vuelven nulos, lo que significa que perderán los datos que contienen. En muchos escenarios en tiempo real, es posible que necesitemos pasar los datos de una solicitud HTTP a la siguiente.
+
+Por ejemplo, podríamos necesitar pasar los datos de un controlador a otro, o de un método de acción a otro dentro del mismo controlador. En situaciones como esta, necesitamos usar TempData.
+
+
+
+¿Qué es TempData en ASP.NET MVC?
+
+Es uno de los mecanismos para pasar una pequeña cantidad de datos temporales desde un método de acción del controlador a una vista, así como desde un método de acción del controlador a otro método de acción, ya sea dentro del mismo controlador o a un controlador diferente.
+
+Como es un objeto de diccionario, almacenará los datos en forma de pares clave-valor, donde cada clave debe ser una cadena y el valor que pasamos al diccionario se almacenará en forma de un tipo de objeto.
+
+
+
+Cómo pasar y recuperar datos de TempData en ASP.NET MVC:
+
+El punto más importante que debe recordar es que, dado que los datos se almacenan en forma de objeto, al recuperarlos de TempData, se requiere la conversión de tipos. Si accede a un valor de cadena de TempData, no es necesario realizar la conversión de tipos.
+
+Pero es obligatorio realizar la conversión explícita al tipo real si está accediendo a datos distintos del tipo de cadena desde TempData.
+
+Almacenar:
+TempData["miDato"] = "Algo";
+
+Recuperar:
+string miDato = TempData["miDato"].ToString();
+
+En la segunda solicitud, accedemos a los datos de TempData que almacenamos en la primera. Sin embargo, no podemos obtener los mismos datos en la tercera solicitud, ya que TempData se borrará después de la segunda.
+
+
+
+¿Cómo conservar los valores de TempData en la solicitud consecutiva?
+
+Para conservar el valor de TempData en la tercera solicitud consecutiva, necesitamos llamar al método TempData.Keep().
+
+public void Keep(): marcará todas las claves en el diccionario de datos temporales para su retención.
+
+public void Keep(string key): Marcará la clave especificada en el diccionario de datos temporales para su conservación. Aquí, el parámetro clave es la clave que se conservará en el diccionario.

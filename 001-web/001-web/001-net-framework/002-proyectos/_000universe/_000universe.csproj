@@ -97,6 +97,7 @@
     <Compile Include="Controllers\EventDescriptionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StrongTypedEventController.cs" />
+    <Compile Include="Controllers\TempDataController.cs" />
     <Compile Include="Controllers\ViewDataBagEventController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -118,6 +119,9 @@
     <Content Include="Views\ViewDataBagEvent\Index.cshtml" />
     <Content Include="Views\StrongTypedEvent\Index.cshtml" />
     <Content Include="Views\EventDescription\Index.cshtml" />
+    <Content Include="Views\TempData\Index.cshtml" />
+    <Content Include="Views\TempData\PrimeraPeticion.cshtml" />
+    <Content Include="Views\TempData\SegundaPeticion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
