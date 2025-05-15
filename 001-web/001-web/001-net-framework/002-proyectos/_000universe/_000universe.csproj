@@ -122,6 +122,7 @@
     <Content Include="Views\TempData\Index.cshtml" />
     <Content Include="Views\TempData\PrimeraPeticion.cshtml" />
     <Content Include="Views\TempData\SegundaPeticion.cshtml" />
+    <Content Include="Views\TempData\TerceraPeticion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

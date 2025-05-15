@@ -47,6 +47,24 @@ namespace _000universe.Controllers
             {
                 footer = (int)TempData["Footer"];
             }
+            TempData.Keep(); // Mantener los valores de TempData para la siguiente petición
+            ViewBag.Header = header;
+            ViewBag.Footer = footer;
+            return View();
+        }
+
+        public ActionResult TerceraPeticion()
+        {
+            string header = "";
+            int footer = 0;
+            if (TempData["Header"] != null)
+            {
+                header = TempData["Header"].ToString();
+            }
+            if (TempData["Footer"] != null)
+            {
+                footer = (int)TempData["Footer"];
+            }
             ViewBag.Header = header;
             ViewBag.Footer = footer;
             return View();
