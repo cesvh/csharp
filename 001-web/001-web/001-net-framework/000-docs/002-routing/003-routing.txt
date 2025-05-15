@@ -1,0 +1,39 @@
+Comprensión del patrón de URL en el enrutamiento ASP.NET MVC:
+
+El patrón de URL solo se considera después del nombre de dominio en la URL. Por ejemplo, si su aplicación web se ejecuta en www.algo.com, el patrón de URL "{controller}/{action}/{id}" para su aplicación sería: www.algo.com/{controller}/{action}/{id}.
+
+Por lo tanto, debe proporcionar el nombre del controlador, seguido del nombre de la acción y su ID, si es necesario. Si no proporciona ninguno de los valores, el motor de enrutamiento proporcionará los valores predeterminados de estos parámetros, lo que significa que el controlador y el método de acción predeterminados gestionarán la solicitud.
+
+
+¿Cómo registrar rutas en ASP.NET MVC?
+
+Una vez creada la ruta, debemos registrarla a nivel de aplicación. Para ello, ASP.NET MVC Framework proporciona el archivo Global.asax. Este archivo contiene una clase llamada MvcApplication que se hereda de la clase System.Web.HttpApplication. Esta clase proporciona varios métodos, como Application_BeginRequest, Application_Error, Application_Start, Session_Start, Session_End, etc. La pregunta es, ¿en qué método debemos registrar las rutas? Queremos que la tabla de rutas cargue todas las rutas al iniciar la aplicación, es decir, al ejecutarla por primera vez. Por lo tanto, necesitamos registrar las rutas dentro del método Application_Start llamando al método RouteConfig.RegisterRoutes(RouteTable.Routes). Si abre el archivo Global.asax, encontrará el siguiente código.
+
+Global.asax
+namespace FirstMVCDemo
+{
+    public class MvcApplication : System.Web.HttpApplication
+    {
+        protected void Application_Start()
+        {
+             AreaRegistration.RegisterAllAreas();
+             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+             RouteConfig.RegisterRoutes(RouteTable.Routes);
+             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+    }
+}
+
+Una vez que llama al método RouteConfig.RegisterRoutes(RouteTable.Routes), observe aquí que estamos pasando RouteCollection (es decir, RouteTable.Routes) como un parámetro de entrada y, si observa además, dentro del método RegisterRoutes, agregamos las rutas a esta propiedad RouteCollection.
+
+Ejemplo para entender el enrutamiento:
+
+1.- http://localhost:53605/ => controlador = Inicio, acción = Índice, id = ninguno, ya que los valores predeterminados del controlador y la acción son Inicio e Índice respectivamente.
+2.- http://localhost:53605/Home => controlador = Home, acción = Index, id = none, ya que el valor predeterminado de la acción es Index.
+3.- http://localhost:53605/Home/Index => controller = Home, action = Index, id=none
+4.- http://localhost:53605/Home/Index/5 => controller = Home, action = Index, id = 5
+
+
+¿Cómo se crea la tabla de enrutamiento en ASP.NET MVC?
+
+Al iniciar una aplicación MVC, se llama al método Application_Start() de global.asax. Este método llama al método RegisterRoutes(). Este método crea la tabla de enrutamiento para la aplicación ASP.NET MVC.

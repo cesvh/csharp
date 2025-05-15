@@ -1,0 +1,24 @@
+Routing:
+
+Se encarga de asignar las solicitudes entrantes del navegador (Peticiones HTTP), a un método de acción del controlador específico. Esta asignación se realiza mediante las reglas de enrutamiento definidas para la aplicación.
+
+
+Diferentes tipos de enrutamiento admitidos por ASP.NET MVC:
+
+1.- Enrutamiento basado en convenciones
+2.- Enrutamiento basado en atributos.
+
+
+¿Cómo funciona el enrutamiento en un formulario web ASP.NET?
+
+ASP.NET Framework introdujo el concepto de enrutamiento para eliminar la necesidad de asignar cada URL a un archivo físico. Este concepto permite definir el patrón de URL que se asigna al controlador de solicitudes. Este controlador puede ser una clase (métodos de clase) o un archivo.
+
+En el caso de la aplicación ASP.NET Webform, el controlador de solicitudes es un archivo (es decir, un archivo aspx) y en el caso de ASP.NET MVC Framework, el controlador de solicitudes son los métodos del controlador, es decir, los métodos de acción.
+
+
+¿Qué es una ruta en una aplicación ASP.NET MVC?
+
+La ruta define el patrón de URL y la información del controlador. Este puede ser un archivo físico, como un archivo ASPX en el caso de la aplicación WebForms. Un controlador también puede ser una clase que procesa la solicitud, como un controlador en el caso de la aplicación ASP.NET MVC.
+
+En la aplicación ASP.NET MVC, todas las rutas (patrón de URL e información del controlador) se almacenan en la tabla de rutas, y el motor de enrutamiento utiliza esta tabla para determinar la clase de controlador adecuada para una solicitud HTTP entrante. Espero que ya tenga una idea básica de las rutas. 
+

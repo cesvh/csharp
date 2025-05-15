@@ -1,0 +1,27 @@
+¿Cómo funciona el enrutamiento en una aplicación ASP.NET MVC?
+
+El enrutamiento en ASP.NET MVC es un mecanismo de coincidencia de patrones que maneja la solicitud HTTP entrante (es decir, la URL entrante) y determina qué hacer con esa solicitud HTTP entrante.
+
+Cuando el cliente realiza una solicitud, es decir, una solicitud HTTP, esa solicitud es recibida primero por el motor de enrutamiento. Una vez que el motor de enrutamiento recibe una solicitud HTTP, determina el patrón de URL de la solicitud entrante y verifica si ese patrón de URL está presente en la tabla de ruta. Si encuentra un patrón de URL coincidente para la solicitud entrante en la tabla de rutas, entonces obtiene la información del controlador correspondiente y reenvía la solicitud al controlador y método de acción adecuados. Si no se encuentra ninguna coincidencia en la tabla de enrutamiento para el patrón de URL de la solicitud HTTP entrante, simplemente se devuelve un código de estado HTTP 404. La funcionalidad de enrutamiento se implementa en System.Web.Routing.
+
+
+¿Cómo configurar una ruta en ASP.NET MVC?
+
+Cada aplicación ASP.NET MVC debe configurar (registrar) al menos una ruta en la clase RouteConfig. De forma predeterminada, ASP.NET MVC Framework proporciona una ruta. Sin embargo, puede configurar tantas rutas como desee. Puedes registrar una ruta dentro del método RegisterRoutes de la clase RouteConfig, que se encuentra en el archivo de clase RouteConfig.cs, en la carpeta App_Start. Encontrarás el siguiente código en la clase RouteConfig.
+
+            routes.MapRoute(
+                name: "Default", //Route Name
+                url: "{controller}/{action}/{id}", //Route Pattern
+                defaults: new
+                {
+                    controller = "Home", //Controller Name
+                    action = "Index", //Action method Name
+                    id = UrlParameter.Optional //Defaut value for above defined parameter
+                }
+            );
+
+El nombre de la ruta, el patrón de URL y la información del controlador, es decir, el nombre del controlador y el nombre del método de acción, se almacenan en la tabla de ruta al iniciar la aplicación, es decir, cuando la aplicación se ejecuta por primera vez.
+
+Aquí, "defaults" especifica qué controlador, método de acción o valor del parámetro id se debe usar si no existen en la URL de la solicitud entrante. De igual manera, se pueden configurar otras rutas mediante el método MapRoute de RouteCollection.
+
+Nota: El nombre de la ruta debe ser único en toda la aplicación. No se puede duplicar.
