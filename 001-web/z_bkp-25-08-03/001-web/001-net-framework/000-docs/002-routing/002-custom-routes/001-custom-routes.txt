@@ -1,0 +1,9 @@
+El enrutamiento ASP.NET MVC es un mecanismo de coincidencia de patrones que gestiona la solicitud HTTP entrante (es decir, la URL entrante) y determina qué hacer con ella.
+
+
+Creación de rutas personalizadas en la aplicación ASP.NET MVC:
+
+Si queremos configurar rutas, debemos hacerlo dentro del método RegisterRoute de la clase RouteConfig mediante el método de extensión MapRoute. Al configurar las rutas, debemos proporcionar al método MapRoute al menos dos parámetros: el nombre de la ruta y el patrón de URL. El parámetro "Default" es opcional. Es importante recordar que los nombres de las rutas deben ser únicos. Se pueden registrar varias rutas personalizadas con nombres diferentes.
+
+El framework ASP.NET MVC evalúa cada ruta secuencialmente. Comienza con la primera ruta configurada y, si la URL entrante no cumple con el patrón de primera URL de la ruta, evalúa la segunda ruta, y así sucesivamente.
+
